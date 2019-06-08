@@ -15,3 +15,4 @@ massive(CONNECTION_STRING).then(db=>{
 })
 
 //Endpoints
+app.get('/api/getcards',GameCtrl.getCards)
