@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import BlackJack from './games/BlackJack'
+import BlackJack from './games/Cards'
 
 export default class Dashboard extends Component {
     render(){
