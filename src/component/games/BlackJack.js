@@ -25,16 +25,24 @@ class BlackJack extends Component {
 
     getCards = () => {
         this.setState({
-            cards: this.props.cards
+            cards: [...this.props.cards]
         })
     }
 
+    reset=()=>{
+        this.setState({
+            cards: [],
+            player1: [],
+            player2: [],
+            player3: [],
+            player4: []
+        })
+    }    
     initialDeal = (numPlayers) => {
         let { cards } = this.state
         let count = 1
         for (let i = 0; i < numPlayers * 2; i++) {
             let dealt = cards.splice(0, 1)
-            console.log(cards, dealt)
             if (count > numPlayers) {
                 count = 1
             }
@@ -47,7 +55,6 @@ class BlackJack extends Component {
     }
 
     render() {
-        console.log(this.state.cards, this.state.player1, this.state.player2, this.state.player3, this.state.player4)
         const { player1, player2, player3, player4 } = this.state
         let player1Hand = player1.map(card => {
             return (
@@ -80,7 +87,8 @@ class BlackJack extends Component {
                 <div>
                     <button onClick={() => this.getCards()}>Shuffle</button>
                     <button onClick={() => this.initialDeal(4)}>Deal</button>
-                    <button >Pass</button>
+                    <button>Pass</button>
+                    <button onClick={()=>this.reset()}>Reset</button>
                 </div>
 
                 <div style={{ width: '73%', textAlign: 'center', minHeight: '300px', marginBottom: 10, border: 'black solid 2px' }}>
