@@ -5,6 +5,12 @@ suit varchar(10),
 color varchar(5)
 );
 
+create table users (
+user_id serial primary key, 
+username varchar,
+password varchar
+)
+
 insert into cards (value, suit, color)
 values  ('2','heart','red'),
         ('2','diamond','red'),
